@@ -7,6 +7,7 @@
         <div ng-repeat="template in templates">
             <h3>{{template.name}}</h3>
             <h4>{{template.price | currency}}</h4>
+            <span>{{template.description}}</span>
             <a href="#!/templates/{{template.id}}" class="btn btn-danger">Other Template</a>
         </div>
 
