@@ -1,28 +1,87 @@
+<div class="container" ng-controller="ContactCtrl">
 
-<div class="large-10 columns">
-    <h3></h3>
-    <table>
-        <thead>
-        <tr>
-            <th width="200px">Name</th>
-            <th width="200px">Company</th>
-            <th width="25%">Email</th>
-            <th width="25%">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
+    <form action="">
+        <h3>Add new contact</h3>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Name:
+                    <input type="text" ng-model="name" placeholder="Category Name" required="required">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Company:
+                    <input type="text" ng-model="email" placeholder="Company Name">
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Name:
+                    <input type="text" ng-model="name" placeholder="Category Description" required="required">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Email:
+                    <input type="text" ng-model="email" placeholder="Company Email" required="required">
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Phone:
+                    <input type="text" ng-model="name" placeholder="Category Name" required="required">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>State:
+                    <input type="text" ng-model="email" placeholder="Company Email">
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Street Address:
+                    <input type="text" ng-model="name" placeholder="Category Name" required="required">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Years in Bussiness:
+                    <input type="text" ng-model="email" placeholder="Company Email">
+                </label>
+            </div>
+        </div>
+    </form>
+
+    <div class="large-10 columns">
+        <h3></h3>
+        <table>
+            <thead>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th width="200px">Name</th>
+                <th width="200px">Company</th>
+                <th width="25%">Description</th>
+                <th width="25%">Email</th>
+                <th>Phone</th>
+                <th>Buttons</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="contact in data">
+                <td>{{contact.category}}</td>
+                <td>{{contact.company}}</td>
+                <td>{{contact.description}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.phone}}</td>
                 <td>
-                    <a href="" class="button tiny"></a>
-                    <a href="" class="button tiny alert"></a>
+                    <a href="" class="button tiny" ng-click="showEditForm(contact)">edit</a>
+                    <a href="" class="button tiny alert">delete</a>
                 </td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
     <div class="small-12 large-2 columns">
-        <a href="" class="button large">+</a>
+        <a href="" class="button large" ng-click="addnewShow()">+</a>
     </div>
 </div>
+
