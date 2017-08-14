@@ -28,4 +28,5 @@ angular.module('myContact.contacts', ['ngRoute', 'firebase'])
         $scope.messages.$add({
             text: $scope.newMessageText
         });
+    };
 }]);
