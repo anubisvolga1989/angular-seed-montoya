@@ -1,65 +1,153 @@
 <div class="container" ng-controller="ContactCtrl">
-
-    <!--<form action="">-->
-        <!--<h3>Add new contact</h3>-->
-        <!--<div class="row">-->
-            <!--<div class="large-6 columns">-->
-                <!--<label>Category:-->
-                    <!--<input type="text" ng-model="name" placeholder="Category Name" required="required">-->
-                <!--</label>-->
-            <!--</div>-->
-            <!--<div class="large-6 columns">-->
-                <!--<label>Company:-->
-                    <!--<input type="text" ng-model="email" placeholder="Company Name" required="required">-->
-                <!--</label>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="large-6 columns">-->
-                <!--<label>Description:-->
-                    <!--<input type="text" ng-model="name" placeholder="Description" required="required">-->
-                <!--</label>-->
-            <!--</div>-->
-            <!--<div class="large-6 columns">-->
-                <!--<label>Email:-->
-                    <!--<input type="text" ng-model="email" placeholder="Company Email" required="required">-->
-                <!--</label>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="large-6 columns">-->
-                <!--<label>Phone:-->
-                    <!--<input type="text" ng-model="name" placeholder="Category Name" required="required">-->
-                <!--</label>-->
-            <!--</div>-->
-            <!--<div class="large-6 columns">-->
-                <!--<label>State:-->
-                    <!--<input type="text" ng-model="email" placeholder="Company State" required="required">-->
-                <!--</label>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="large-6 columns">-->
-                <!--<label>Street Address:-->
-                    <!--<input type="text" ng-model="name" placeholder="Street Address" required="required">-->
-                <!--</label>-->
-            <!--</div>-->
-            <!--<div class="large-6 columns">-->
-                <!--<label>Years in Bussiness:-->
-                    <!--<input type="number" ng-model="email" placeholder="Years in Bussiness" required="required">-->
-                <!--</label>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-            <!--<div class="large-6 columns">-->
-                <!--<label>Zip Code:-->
-                    <!--<input type="number" ng-model="name" placeholder="Zip code" required="required">-->
-                <!--</label>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</form>-->
-
     <div class="large-10 columns">
+        <div class="alert-box" data-alert ng-show="msg">{{msg}}</div>
+
+        <div class="row" ng-show="contactShow">
+            <div class="panel">
+                <h3>
+                    {{name}}
+                </h3>
+                <ul>
+                    <li>Category: {{category}}</li>
+                    <li>Company: {{company}}</li>
+                    <li>Description: {{description}}</li>
+                    <li>Phone: {{phone}}</li>
+                    <li>State: {{state}}</li>
+                    <li>Street Address: {{street}}</li>
+                    <li>Years in Business: {{years}}</li>
+                    <li>ZipCode: {{zipcode}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <form action="" ng-show="addFormShow" ng-submit="addFormSubmit()">
+        <h3>Add new contact</h3>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Category:
+                    <input type="text" ng-model="name" placeholder="Category Name" required="required">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Company:
+                    <input type="text" ng-model="company" placeholder="Company Name" required="required">
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Description:
+                    <input type="text" ng-model="description" placeholder="Description" required="required">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Email:
+                    <input type="text" ng-model="email" placeholder="Company Email" required="required">
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Phone:
+                    <input type="text" ng-model="phone" placeholder="Category Name" required="required">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>State:
+                    <input type="text" ng-model="state" placeholder="Company State" required="required">
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Street Address:
+                    <input type="text" ng-model="street" placeholder="Street Address" required="required">
+                </label>
+            </div>
+            <div class="large-6 columns">
+                <label>Years in Bussiness:
+                    <input type="number" ng-model="years" placeholder="Years in Bussiness" required="required">
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Zip Code:
+                    <input type="number" ng-model="zipcode" placeholder="Zip code" required="required">
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <input type="submit" value="Add Bussines">
+            </div>
+        </div>
+    </form>
+
+        <form action="" ng-show="addEditShow" ng-submit="editFormSubmit()">
+            <h3>Edit Business</h3>
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Category:
+                        <input type="text" ng-model="name" placeholder="Category Name" required="required">
+                    </label>
+                </div>
+                <div class="large-6 columns">
+                    <label>Company:
+                        <input type="text" ng-model="company" placeholder="Company Name" required="required">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Description:
+                        <input type="text" ng-model="description" placeholder="Description" required="required">
+                    </label>
+                </div>
+                <div class="large-6 columns">
+                    <label>Email:
+                        <input type="text" ng-model="email" placeholder="Company Email" required="required">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Phone:
+                        <input type="text" ng-model="phone" placeholder="Category Name" required="required">
+                    </label>
+                </div>
+                <div class="large-6 columns">
+                    <label>State:
+                        <input type="text" ng-model="state" placeholder="Company State" required="required">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Street Address:
+                        <input type="text" ng-model="street" placeholder="Street Address" required="required">
+                    </label>
+                </div>
+                <div class="large-6 columns">
+                    <label>Years in Bussiness:
+                        <input type="number" ng-model="years" placeholder="Years in Bussiness" required="required">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-6 columns">
+                    <label>Zip Code:
+                        <input type="number" ng-model="zipcode" placeholder="Zip code" required="required">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <input type="submit" value="Update Bussines">
+                </div>
+            </div>
+        </form>
+
         <h3></h3>
         <table>
             <thead>
@@ -74,7 +162,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="contact in data">
-                <td>{{contact.category}}</td>
+                <td><a ng-click="showContact(contact)">{{contact.category}}</a></td>
                 <td>{{contact.company}}</td>
                 <td>{{contact.description}}</td>
                 <td>{{contact.email}}</td>
@@ -88,7 +176,9 @@
         </table>
     </div>
     <div class="small-12 large-2 columns">
-        <a href="" class="button large" ng-click="addnewShow()">+</a>
+        <a href="" class="button large" ng-click="addnewShow()" ng-hide="addFormShow">+</a>
+        <a href="" class="button large" ng-click="hide()" ng-show="addFormShow">-</a>
+        <a href="" class="button large" ng-click="hide()" ng-show="contactShow">-</a>
     </div>
 </div>
 
