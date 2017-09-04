@@ -26,6 +26,9 @@
           <li>
             <a href="#!view2">View2</a>
           </li>
+          <li>
+            <a href="#!facebook">facebook</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -33,37 +36,6 @@
 
   <div class="container">
     <div ng-view></div>
-    <div class="col-md-4">
-      <h4>Please Login In</h4>
-      <button type="button" class="btn btn-default">Login</button>
-      <br><br>
-      <div class="well">
-        <h4>user info</h4>
-        <ul>
-          <li>ID</li>
-          <li>First Name</li>
-          <li>Email</li>
-          <li>Gender</li>
-          <li>Location</li>
-        </ul>
-      </div>
-      <br>
-      <h4>Permissions</h4>
-      <ul>
-        <li></li>
-      </ul>
-    </div>
-    <div class="col-md-8">
-      <h3>Welcome to Facebook</h3>
-      <form action="">
-        <div class="form-group">
-          <label for="">Status Update</label>
-          <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-          <br>
-          <botton class="btn btn-primary">Submit</botton>
-        </div>
-      </form>
-    </div>
   </div>
 
   <div
@@ -78,6 +50,7 @@
   <script src="app.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>
+  <script src="facebook/facebook.js"></script>
   <script src="app/bower_components/ng-facebook/ngFacebook.js"></script>
   <script>
       window.fbAsyncInit = function() {
@@ -89,13 +62,7 @@
           FB.AppEvents.logPageView();
       };
 
-      (function(d, s, id){
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) {return;}
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js";
-          fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+
   </script>
 </body>
 </html>
